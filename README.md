@@ -26,7 +26,7 @@ Network Traffic Analysis workflows can be approached in various ways, but the me
 
 - Ingest Traffic: refers to the initial step of collecting and importing network data, often through packet capture or log files, for further analysis and examination of network activity.
 
-- Reduce Noise by Filtering: is aimed at eliminating irrelevant or extraneous data to focus on meaningful network traffic patterns.
+- Reduce Noise by Filtering: aims to eliminate irrelevant or extraneous data to focus on meaningful network traffic patterns.
 
 - Analyse and Explore: involves examining and investigating network data by applying specific filters to uncover valuable insights and anomalies.
 
@@ -35,6 +35,28 @@ Network Traffic Analysis workflows can be approached in various ways, but the me
 It is also important to note that the steps above are iterative which means we can go over the steps severally as we discover new information about our network traffic. Using the above workflow I will be carrying out this Network Traffic Analysis task as provided by ANZ.
 
 # Ingest Traffic
-I will begin by importing the traffic data into our Network Traffic Analyzer, in this case, Wireshark. ANZ has provided the Packet Capture file, which I will simply open using Wireshark.
+I will begin by importing the traffic data into our Network Traffic Analyzer, in this case, Wireshark. ANZ has provided the Packet Capture file, which I will open using Wireshark.
 
 ![image2](https://github.com/JosephAdeoye/packet-analysis/assets/66190309/48a7b828-6fbf-41d2-96f0-96031d6ff17d)
+
+So, the image above is what we typically see when we open a packet capture file with Wireshark. There are three main panes in the Wireshark GUI
+
+- Packet List: This is the area highlighted in yellow. Here, we see a summary line of each packet including source and destination IP addresses, protocol, time, etc.
+
+- Packet Details: This is the area highlighted in green. This window allows us to drill down into the packet to inspect the protocols with greater detail. It will break it down into chunks that we would expect following the typical OSI Model reference.
+
+- Packet Bytes: This is the area highlighted in red. The Packet Bytes window allows us to look at the packet contents in ASCII or hex output.
+
+# Reduce Noise by filtering
+From the instruction provided by ANZ, we understand that the relevant traffic for this task is all in HTTP. We therefore take the next step in the Network Traffic Analysis workflow by reducing noise by filtering.
+
+![image](https://github.com/JosephAdeoye/packet-analysis/assets/66190309/d50826de-3d18-425f-b90f-edf3efd98d95)
+
+In the image above, I applied the HTTP filter in the area highlighted in red. As a result in our Packet list window highlighted in yellow, if we take a look at the protocol field, we can see that every protocol here is HTTP showing that our filter has been effectively applied. The benefit of this is that we are able to focus on traffic that actually matters in our case study. In the packet details window, highlighted in green, we can see more information about the packet, the user-agent, the type of file, etc.
+
+# Analyse and Explore
+The first task we are required to complete according to the documentation provided is:
+
+anz-logo.jpg and bank-card.jpg are two images that show up in the users’ network traffic.
+
+Extract these images from the Pcap file and attach them to your report.
